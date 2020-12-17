@@ -1,0 +1,33 @@
+create table member_tbl(
+    userid varchar(20) not null unique primary key,
+    pass varchar(40) not null,
+    name varchar(20) not null,
+    email varchar(30) not null unique,
+    admin int default '0'
+);
+
+create table board_tbl(
+  unq int not null primary key auto_increment,
+  userid varchar(20) not null unique,
+  title varchar(50) not null,
+  category varchar(20) not null,
+  mat varchar(1000) not null,
+  recipe longblob not null,
+  hits int default '0',
+  rdate timestamp,
+
+  foreign key (userid) references member_tbl(userid) on delete cascade
+);
+
+
+create table reply(
+    replyunq int not null primary key,
+    unq int default '0',
+    replytext varchar(1000) not null ,
+    replyer varchar(50) not null ,
+    redate timestamp,
+    board_unq int not null ,
+
+    foreign key (board_unq) references board_tbl(unq) on delete cascade ,
+    foreign key (replyer) references member_tbl(userid) on delete cascade
+);
