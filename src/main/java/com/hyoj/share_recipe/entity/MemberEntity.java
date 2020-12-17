@@ -1,7 +1,6 @@
 package com.hyoj.share_recipe.entity;
 
 import lombok.Data;
-import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,7 +31,4 @@ public class MemberEntity {
     @Email(message = "잘못된 이메일 형식입니다.")
     private String email;
 
-    @Column
-    @ColumnDefault("0")
-    private int admin;
 }
