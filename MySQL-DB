@@ -17,7 +17,6 @@ create table board_tbl(
   rdate timestamp,
 
   foreign key (userid) references member_tbl(userid) on delete cascade
-
 );
 
 
