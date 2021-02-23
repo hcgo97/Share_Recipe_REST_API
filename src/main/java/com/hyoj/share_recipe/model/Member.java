@@ -1,17 +1,21 @@
-package com.hyoj.share_recipe.entity;
+package com.hyoj.share_recipe.model;
 
 import lombok.Data;
+import org.hibernate.annotations.Immutable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 @Data
-@Entity(name = "member_tbl")
-public class MemberEntity {
+@Entity
+@Immutable // model 직접 수정 불가
+@Table(name = "member_tbl")
+public class Member {
 
     @Id
     @NotNull(message = "아이디를 입력해주세요.")
