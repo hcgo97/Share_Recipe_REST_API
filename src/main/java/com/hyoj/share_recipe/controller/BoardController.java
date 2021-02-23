@@ -1,17 +1,17 @@
 package com.hyoj.share_recipe.controller;
 
-import com.hyoj.share_recipe.entity.BoardEntity;
-import com.hyoj.share_recipe.service.board.BoardServiceImpl;
+import com.hyoj.share_recipe.model.Board;
+import com.hyoj.share_recipe.service.BoardService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/sharerecipe")
+@RequestMapping("/v1/shareRecipe")
 public class BoardController {
 
 
-    private final BoardServiceImpl boardService;
+    private final BoardService boardService;
 
 
 //    public BoardController(BoardServiceImpl boardService){
@@ -20,9 +20,9 @@ public class BoardController {
 
     //BoardList
     @GetMapping("/board")
-    public Object boardList(@RequestBody BoardEntity boardEntity){
+    public Object boardList(@RequestBody Board board){
 
-        return boardService.boardList(boardEntity);
+        return boardService.boardList(board);
     }
 
 }
