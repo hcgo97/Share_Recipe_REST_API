@@ -24,10 +24,10 @@ create table reply(
     replyunq int not null primary key,
     unq int default '0',
     replytext varchar(1000) not null ,
-    replyer varchar(50) not null ,
+    replayer varchar(50) not null ,
     redate timestamp,
     board_unq int not null ,
 
     foreign key (board_unq) references board_tbl(unq) on delete cascade ,
-    foreign key (replyer) references member_tbl(userid) on delete cascade
+    foreign key (replayer) references member_tbl(userid) on delete cascade
 );
