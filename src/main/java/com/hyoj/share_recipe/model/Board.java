@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 @Entity
 @Immutable // model 직접 수정 불가
 @Table(name = "board_tbl")
-@SecondaryTable(name = "reply", pkJoinColumns = @PrimaryKeyJoinColumn(name = "replyunq"))
 public class Board {
 
     @Id
@@ -33,11 +32,5 @@ public class Board {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private LocalDateTime rdate;
-
-    @Column(name = "replyunq", table = "reply")
-    private int replyUnq;
-
-    @Column(name = "replayer", table = "reply")
-    private String replayer;
 
 }

@@ -5,6 +5,7 @@ import org.hibernate.annotations.Immutable;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -15,16 +16,16 @@ public class Reply {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int replyUnq;
+    private int replyunq;
 
-    private String replyText;
+    private String replytext;
 
     private String replayer;
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Date redate;
+    private LocalDateTime redate;
 
-    @Column(name = "unq", table = "board_tbl")
+    @Column(name = "unq", table = "board_tbl", insertable = false, updatable = false)
     private int boardUnq;
 
 }
